@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chilla Chaska</title>
+<meta name="description" content="Chilla Chaska — a chilla and protein-breakfast kitchen. Dal soaked overnight, wet-ground at dawn, spread thin on a 210 °C tawa. Flagship opening in Sector 62, Noida.">
+<meta name="theme-color" content="#16633A">
+<meta property="og:title" content="Chilla Chaska — Good Food, Great Mood">
+<meta property="og:description" content="Chillas ground fresh every morning. Up to 32 g of protein, no maida, no colour. Opening in Sector 62, Noida.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Mono:wght@400;500&family=Karla:ital,wght@0,300..800;1,400..600&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress"></div>
+
+<!-- ===================== icon sprite + SVG filters ===================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="lace" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="soft" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+    <radialGradient id="panGrad" cx="38%" cy="32%" r="78%">
+      <stop offset="0%" stop-color="#4A4540"/>
+      <stop offset="62%" stop-color="#2B2723"/>
+      <stop offset="100%" stop-color="#16130F"/>
+    </radialGradient>
+
+    <symbol id="i-besan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18a9 9 0 0 1-18 0Z"/><path d="M8 12c0-3 1.8-5 4-5s4 2 4 5"/></g><circle cx="6.8" cy="5.2" r=".9" fill="currentColor"/><circle cx="17.4" cy="4.2" r=".7" fill="currentColor"/><circle cx="12" cy="2.8" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-dal" viewBox="0 0 24 24"><g fill="currentColor"><ellipse cx="7" cy="7.6" rx="2.6" ry="2"/><ellipse cx="14.2" cy="5.8" rx="2.4" ry="1.9"/><ellipse cx="17.6" cy="11" rx="2.6" ry="2"/><ellipse cx="9.4" cy="13.2" rx="2.5" ry="2"/><ellipse cx="15.2" cy="17" rx="2.4" ry="1.9"/><ellipse cx="6.2" cy="18" rx="2.2" ry="1.7"/></g></symbol>
+    <symbol id="i-soya" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="7" cy="7.8" r="2"/><circle cx="12.6" cy="5.8" r="1.8"/><circle cx="17.2" cy="9.6" r="2.1"/><circle cx="9.4" cy="13" r="2"/><circle cx="15" cy="14.6" r="1.9"/><circle cx="11.4" cy="18.6" r="1.7"/><circle cx="6" cy="17.4" r="1.5"/></g></symbol>
+    <symbol id="i-oats" viewBox="0 0 24 24"><g fill="currentColor"><rect x="3" y="7" width="7.4" height="4" rx="2" transform="rotate(-18 6.7 9)"/><rect x="12" y="4.6" width="7.4" height="4" rx="2" transform="rotate(14 15.7 6.6)"/><rect x="7.6" y="12.8" width="8.4" height="4.2" rx="2.1" transform="rotate(-8 11.8 14.9)"/><rect x="14.6" y="16" width="6.2" height="3.6" rx="1.8" transform="rotate(20 17.7 17.8)"/></g></symbol>
+    <symbol id="i-paneer" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 8.5 12 5l8 3.5-8 3.5-8-3.5Z"/><path d="M4 8.5V16l8 3.5V12"/><path d="M20 8.5V16l-8 3.5"/></g></symbol>
+    <symbol id="i-cheese" viewBox="0 0 24 24"><path d="M3 15.4V10l9-5 9 5v5.4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8" cy="12.4" r="1.3" fill="currentColor"/><circle cx="14" cy="13.4" r="1" fill="currentColor"/><circle cx="17" cy="10.4" r=".9" fill="currentColor"/></symbol>
+    <symbol id="i-corn" viewBox="0 0 24 24"><path d="M12 2c3.3 0 5.5 3.4 5.5 8.5S14.8 22 12 22s-5.5-6.4-5.5-11.5S8.7 2 12 2Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.2 6.6 12 8.5l2.8-1.9M9.2 11.2 12 13.1l2.8-1.9M9.6 15.8 12 17.4l2.4-1.6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="i-onion" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 6c4 0 7 3.4 7 7.5S16 21 12 21s-7-3.4-7-7.5S8 6 12 6Z"/><path d="M12 6c-1.7 3-1.7 12 0 15M12 6c1.7 3 1.7 12 0 15" stroke-width="1.1"/><path d="M12 6c-.6-1.6-.2-3 1-4M12 6c.5-1.7.1-3-1.2-4" stroke-width="1.3" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-tomato" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="14" r="7.2"/><path d="M12 6.8V4.2M12 6.8 9 4.8M12 6.8 15 4.8M12 6.8l-3.6 1.2M12 6.8l3.6 1.2" stroke-width="1.3" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-chilli" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16.4 5.6c1.6 2.6 1.3 6.6-1.3 9.8s-6.6 5.3-9.6 4.3c-.9-.3-.8-1.3.2-1.7 2.6-1 4.4-2.5 6-4.6 1.9-2.5 2.9-5.3 3-7.6.1-1 1.1-1.2 1.7-.2Z"/><path d="M16.5 5.7c.4-1.3 1.5-2.1 2.8-2.2"/></g></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9"/><path d="M12 9c0-3.6 2.6-6.4 6.3-6.6.3 3.8-2.3 6.6-6.3 6.6Z"/><path d="M12 13.6c-3.3 0-5.6-2.3-5.8-5.6 3.4-.2 5.8 2.2 5.8 5.6Z"/></g></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-8.4"/><path d="M12 12.6c0-3 2.2-5.4 5.4-5.6.2 3.2-2 5.6-5.4 5.6Z"/><path d="M12 16c-2.8 0-4.8-2-5-4.8 2.9-.2 5 1.9 5 4.8Z"/></g></symbol>
+    <symbol id="i-capsicum" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M7.6 8.2C5.1 8.2 4 10.7 4 13.5 4 17.7 6.6 21 9.6 21c1 0 1.7-.5 2.4-.5s1.4.5 2.4.5c3 0 5.6-3.3 5.6-7.5 0-2.8-1.1-5.3-3.6-5.3-1.4 0-2.2.6-3 .6h-2.8c-.8 0-1.6-.6-3-.6Z"/><path d="M12 8.8V6.4c0-1.4 1.1-2.6 2.6-2.7" stroke-width="1.3" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-carrot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M14.8 9.2 5.4 18.6c-.6.6-.4 1.6.4 1.9l1.6.5c4.4 1.3 8.9-3.2 9.3-7.7l.2-2.2-2.1-1.9Z"/><path d="M15.2 8.8c1-2 2.6-3.4 4.8-4-.3 2.3-1.5 4-3.4 5.2" stroke-linecap="round"/><path d="m10 14.2 1.8 1.8M12.4 11.8l1.8 1.8" stroke-width="1.2" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-egg" viewBox="0 0 24 24"><path d="M12 3c3.6 0 6.5 5.4 6.5 9.7S15.6 21 12 21s-6.5-3.9-6.5-8.3S8.4 3 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="13.2" r="2.8" fill="currentColor" opacity=".4"/></symbol>
+    <symbol id="i-curd" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.5h17a8.5 8.5 0 0 1-17 0Z"/><path d="M8 12.5c0-2.6 1.8-4.6 4-4.6s4 2 4 4.6"/><path d="M12 7.9V5.8c0-1 .9-1.9 2-1.9" stroke-width="1.3"/></g></symbol>
+    <symbol id="i-ghee" viewBox="0 0 24 24"><path d="M12 3s6 6.4 6 10.4A6 6 0 0 1 6 13.4C6 9.4 12 3 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 14.2a3 3 0 0 0 2 2.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="i-spice" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 9.6h12v9.2a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9.6Z"/><path d="M8.2 9.6V7.4a3.8 3.8 0 0 1 7.6 0v2.2"/><path d="M9.4 13.6h5.2M9.4 16.8h3" stroke-width="1.3" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-salt" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M7.5 9.4h9l1.2 9.8a1.6 1.6 0 0 1-1.6 1.8H7.9a1.6 1.6 0 0 1-1.6-1.8L7.5 9.4Z"/><path d="M8.7 9.4V7A3.3 3.3 0 0 1 12 3.7 3.3 3.3 0 0 1 15.3 7v2.4"/></g><circle cx="10.5" cy="13.4" r=".85" fill="currentColor"/><circle cx="13.6" cy="15.6" r=".85" fill="currentColor"/></symbol>
+    <symbol id="i-lemon" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="12" rx="8.4" ry="6.2" transform="rotate(-32 12 12)"/><path d="M12 12 6.8 7.6M12 12l5.2 4.4M12 12l-3 5.2M12 12l3-5.2" stroke-width="1.1"/></g></symbol>
+
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c3.9 0 7-3 7-6.8 0-4.6-4.3-6.6-4.3-10.4 0-.9-1-1.4-1.7-.8C10 6.2 9.4 8.6 9.4 10.4c0 1.3-1 1.6-1.6.7-.4-.6-.6-1.4-.6-2.2C6 10.7 5 12.9 5 15.2 5 19 8.1 22 12 22Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 6.8V12.4l3.4 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-protein" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 9v6M7 6.6v10.8M17 6.6v10.8M20 9v6M7 12h10"/></g></symbol>
+    <symbol id="i-nomaida" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5v-8"/><path d="M12 13.4c0-2.4 1.8-4.3 4.5-4.5.2 2.7-1.8 4.5-4.5 4.5ZM12 13.4c0-2.4-1.8-4.3-4.5-4.5-.2 2.7 1.8 4.5 4.5 4.5Z"/><path d="M12 8.6c0-2 1.4-3.5 3.6-3.7"/><path d="M3.6 20.4 20.4 3.6" stroke-width="1.8"/></g></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 8.4 12 4l9 4.4v7.2L12 20l-9-4.4V8.4Z"/><path d="M3 8.4 12 12.8l9-4.4M12 12.8V20"/></g></symbol>
+    <symbol id="i-vent" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 7.5h10.2a3 3 0 1 0-3-3"/><path d="M3.5 12.5h13.2a3 3 0 1 1-3 3"/><path d="M3.5 17.5h8.2a2.5 2.5 0 1 1-2.5 2.5"/></g></symbol>
+    <symbol id="i-bike" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="5.6" cy="17" r="3.2"/><circle cx="18.4" cy="17" r="3.2"/><path d="M8.8 17h6.2l-2.6-7.2H9.2" stroke-linejoin="round"/><path d="M13.2 9.8h3.6l1.6 7.2M15.4 6h3.2" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12.4c0 3.9-4 7.1-9 7.1-1 0-2-.1-2.9-.4L4 20.8l1.4-3.5A6.8 6.8 0 0 1 3 12.4c0-3.9 4-7.1 9-7.1s9 3.2 9 7.1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21.4s7-6.1 7-11A7 7 0 0 0 5 10.4c0 4.9 7 11 7 11Z" stroke-linejoin="round"/><circle cx="12" cy="10.2" r="2.6"/></g></symbol>
+    <symbol id="i-cup" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 9.4h13v5.8a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9.4Z"/><path d="M17 11.4h1.8a2.6 2.6 0 0 1 0 5.2H17"/><path d="M8 6.4c0-1 1-1.5 1-2.5M12 6.4c0-1 1-1.5 1-2.5" stroke-width="1.3" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-tawa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="10.6" cy="13" rx="8" ry="5"/><path d="M18.6 13h3.6" stroke-linecap="round"/><path d="M5.6 11.6c1.6-1.5 8.4-1.5 10 0" stroke-width="1.2"/></g></symbol>
+    <symbol id="i-chilla" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12a8.6 8.6 0 0 0 17.2 0"/></g><circle cx="9" cy="8.4" r=".9" fill="currentColor"/><circle cx="14.6" cy="7.4" r=".8" fill="currentColor"/><circle cx="12" cy="5.4" r=".7" fill="currentColor"/></symbol>
+    <symbol id="i-roll" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="8" y="2.4" width="8" height="19.2" rx="4" transform="rotate(22 12 12)"/><path d="M6.4 9.8 15.6 6.2M8.6 15.4 17.8 11.8" stroke-width="1.2"/></g></symbol>
+    <symbol id="i-thali" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9.4" r="2.6"/><circle cx="15.6" cy="9" r="2"/><circle cx="12" cy="16" r="2.4"/></g></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2M12 19.4v2M2.6 12h2M19.4 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8 8.6 8.6 0 1 0 20.2 14.6Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M12.6 5.6 19 12l-6.4 6.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 21.4c4.5-2 7-5.4 7-10V5.8L12 3 5 5.8v5.6c0 4.6 2.5 8 7 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m8.8 12 2.3 2.3 4.1-4.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5.6" y="3.4" width="12.8" height="17.2" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.4 17.6h3.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.4" width="18" height="13.2" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.9 7 8.1 6 8.1-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================== header ============================== -->
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top" aria-label="Chilla Chaska, home">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <g class="steam" stroke="#E79B0C" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".9">
+          <path d="M17 11c2-2 0-4 2-6"/><path d="M24 9c2-2 0-4 2-6"/><path d="M31 11c2-2 0-4 2-6"/>
+        </g>
+        <ellipse cx="24" cy="31" rx="18" ry="12.5" fill="#F2C14A"/>
+        <path d="M6 31a18 12.5 0 0 0 36 0Z" fill="#E79B0C"/>
+        <circle cx="17" cy="26" r="1.8" fill="#16633A"/>
+        <circle cx="28" cy="24" r="1.5" fill="#16633A"/>
+        <circle cx="33" cy="28" r="1.3" fill="#C93A2E"/>
+        <ellipse cx="24" cy="31" rx="18" ry="12.5" fill="none" stroke="#16633A" stroke-width="2.6"/>
+      </svg>
+      <span class="brand-word">
+        <b>Chilla<i> Chaska</i></b>
+        <span>Good food · Great mood</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#why">Why chilla</a>
+      <a href="#chilla">The chilla</a>
+      <a href="#how">How it's made</a>
+      <a href="#menu">Menu</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#visit">Visit</a>
+    </nav>
+
+    <div class="head-actions">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch colour theme">
+        <svg class="i-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+        <svg class="i-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+        <svg aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+      <a class="btn btn--sm head-cta" href="#order">Order
+        <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ================================ hero ================================ -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <p class="hero-badge"><span class="pulse-dot"></span> Flagship opening soon — Sector 62, Noida</p>
+
+      <h1>The chilla, taken <em>seriously</em>.</h1>
+
+      <p class="hero-sub">
+        Dal soaked four hours and wet-ground at dawn. Batter rested, then spread thin
+        on a 210&nbsp;°C tawa until the rim turns to lace. Up to 32&nbsp;g of protein,
+        no maida, no colour — built for the office breakfast rush and a 30-minute ride.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn" href="#menu">See the full menu <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        <a class="btn btn--ghost" href="#chilla">Look inside a chilla</a>
+      </div>
+
+      <div class="hero-chips">
+        <span class="chip"><svg aria-hidden="true"><use href="#i-nomaida"></use></svg> No maida, ever</span>
+        <span class="chip"><svg aria-hidden="true"><use href="#i-protein"></use></svg> Up to 32 g protein</span>
+        <span class="chip"><svg aria-hidden="true"><use href="#i-flame"></use></svg> Cooked to order</span>
+        <span class="chip"><svg aria-hidden="true"><use href="#i-clock"></use></svg> 7:30 AM – 11 PM</span>
+      </div>
+    </div>
+
+    <div class="tawa-stage" aria-hidden="true">
+      <div class="orbit">
+        <span class="orb-item" style="--a:12deg;--r:var(--r1)"><span><svg><use href="#i-besan"></use></svg></span></span>
+        <span class="orb-item" style="--a:84deg;--r:var(--r1)"><span><svg><use href="#i-chilli"></use></svg></span></span>
+        <span class="orb-item" style="--a:156deg;--r:var(--r1)"><span><svg><use href="#i-leaf"></use></svg></span></span>
+        <span class="orb-item" style="--a:228deg;--r:var(--r1)"><span><svg><use href="#i-onion"></use></svg></span></span>
+        <span class="orb-item" style="--a:300deg;--r:var(--r1)"><span><svg><use href="#i-paneer"></use></svg></span></span>
+      </div>
+      <div class="orbit orbit--rev">
+        <span class="orb-item" style="--a:46deg;--r:var(--r2)"><span><svg><use href="#i-dal"></use></svg></span></span>
+        <span class="orb-item" style="--a:134deg;--r:var(--r2)"><span><svg><use href="#i-tomato"></use></svg></span></span>
+        <span class="orb-item" style="--a:226deg;--r:var(--r2)"><span><svg><use href="#i-curd"></use></svg></span></span>
+        <span class="orb-item" style="--a:314deg;--r:var(--r2)"><span><svg><use href="#i-cup"></use></svg></span></span>
+      </div>
+
+      <div class="tawa">
+        <svg viewBox="0 0 300 300">
+          <g class="steam" fill="none" stroke="#E79B0C" stroke-width="5" stroke-linecap="round" opacity=".85">
+            <path d="M110 92c14-20-8-34 6-56"/>
+            <path d="M150 84c14-20-8-34 6-56"/>
+            <path d="M190 92c14-20-8-34 6-56"/>
+          </g>
+          <circle cx="150" cy="168" r="132" fill="url(#panGrad)"/>
+          <circle cx="150" cy="168" r="132" fill="none" stroke="#0E0C0A" stroke-width="6"/>
+          <circle cx="150" cy="168" r="118" fill="none" stroke="#544C44" stroke-width="2" opacity=".55"/>
+          <g class="batter-spread" filter="url(#lace)">
+            <circle cx="150" cy="168" r="104" fill="#F2C14A"/>
+            <circle cx="150" cy="168" r="101" fill="none" stroke="#DE9F2A" stroke-width="7" opacity=".85"/>
+            <g fill="#DE9F2A" opacity=".3">
+              <circle cx="110" cy="130" r="3"/><circle cx="178" cy="122" r="2.4"/><circle cx="200" cy="176" r="3.2"/>
+              <circle cx="128" cy="206" r="2.8"/><circle cx="168" cy="220" r="2.2"/><circle cx="92" cy="182" r="2.6"/>
+              <circle cx="146" cy="156" r="2"/><circle cx="214" cy="146" r="2.4"/><circle cx="104" cy="156" r="2.2"/>
+            </g>
+            <g>
+              <circle cx="122" cy="146" r="5" fill="#3F7D34" opacity=".9"/>
+              <circle cx="186" cy="150" r="4.2" fill="#3F7D34" opacity=".85"/>
+              <circle cx="152" cy="200" r="4.6" fill="#3F7D34" opacity=".8"/>
+              <circle cx="108" cy="192" r="3.8" fill="#C93A2E" opacity=".9"/>
+              <circle cx="198" cy="198" r="3.4" fill="#C93A2E" opacity=".85"/>
+              <circle cx="164" cy="126" r="3.6" fill="#C93A2E" opacity=".8"/>
+              <circle cx="138" cy="176" r="4" fill="#FFF0C2" opacity=".85"/>
+              <circle cx="206" cy="166" r="3.2" fill="#FFF0C2" opacity=".8"/>
+              <circle cx="96" cy="164" r="3" fill="#8A5A1E" opacity=".7"/>
+              <circle cx="176" cy="184" r="3.4" fill="#8A5A1E" opacity=".65"/>
+            </g>
+            <ellipse cx="118" cy="132" rx="38" ry="22" fill="#FFFFFF" opacity=".17" transform="rotate(-24 118 132)"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="sizzle">
+        <i style="--d:0s;   left:38%; top:62%"></i>
+        <i style="--d:.4s;  left:56%; top:58%"></i>
+        <i style="--d:.8s;  left:47%; top:68%"></i>
+        <i style="--d:1.2s; left:64%; top:66%"></i>
+        <i style="--d:1.6s; left:33%; top:56%"></i>
+        <i style="--d:2s;   left:60%; top:72%"></i>
+      </div>
+
+      <div class="price-tag price-tag--alt">
+        <b>₹69</b><span>Besan chilla</span>
+      </div>
+      <div class="price-tag">
+        <b>32 g</b><span>Protein, top of menu</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== stat strip ============================== -->
+<div class="wrap">
+  <div class="stats reveal">
+    <div class="stat"><b><span data-count="20" data-suffix="+">20+</span></b><span>items on the opening menu — tight on purpose</span></div>
+    <div class="stat"><b><span data-count="32" data-suffix=" g">32 g</span></b><span>protein in the biggest chilla, from food not powder</span></div>
+    <div class="stat"><b><span data-count="6" data-suffix=" min">6 min</span></b><span>average time a classic chilla spends on the tawa</span></div>
+    <div class="stat"><b><span data-count="100" data-suffix="%">100%</span></b><span>of batter ground in our own kitchen, daily</span></div>
+  </div>
+</div>
+
+<!-- =============================== marquee =============================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Besan<span></span></span><span>Moong Dal</span><span>Mixed Dal</span><span>Oats &amp; Spinach</span><span>Paneer</span><span>Corn Cheese</span><span>High-Protein</span><span>Kulhad Chai</span><span>Chaas</span><span>Good Food · Great Mood</span>
+    <span>Besan</span><span>Moong Dal</span><span>Mixed Dal</span><span>Oats &amp; Spinach</span><span>Paneer</span><span>Corn Cheese</span><span>High-Protein</span><span>Kulhad Chai</span><span>Chaas</span><span>Good Food · Great Mood</span>
+  </div>
+</div>
+
+<!-- ================================ why ================================ -->
+<section class="band" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Why a chilla</p>
+      <h2>A breakfast that is already good for you — before anyone markets it that way.</h2>
+      <p>Chilla is not a health-food invention. It is a lentil pancake that half of north India already eats. Our job is not to explain the category. It is to cook it properly, every single time.</p>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar reveal" style="--rd:0s">
+        <div class="pillar-ic"><svg aria-hidden="true"><use href="#i-protein"></use></svg></div>
+        <h3>Protein you can point at</h3>
+        <p>Gram flour and lentils are the batter, not an additive. Add paneer or sprouts and one chilla clears 30&nbsp;g without a scoop of anything.</p>
+        <p class="tiny">11 g – 32 g per chilla</p>
+      </article>
+      <article class="pillar reveal" style="--rd:.08s">
+        <div class="pillar-ic"><svg aria-hidden="true"><use href="#i-nomaida"></use></svg></div>
+        <h3>No maida, no colour</h3>
+        <p>Nothing refined, nothing dyed. The yellow is turmeric. The green flecks are coriander that was whole ten minutes ago.</p>
+        <p class="tiny">Besan &amp; dal chillas are gluten-free</p>
+      </article>
+      <article class="pillar reveal" style="--rd:.16s">
+        <div class="pillar-ic"><svg aria-hidden="true"><use href="#i-tawa"></use></svg></div>
+        <h3>Cooked when you order</h3>
+        <p>No warming tray, no batch made at 7 a.m. and sold at noon. Batter goes on the tawa after the ticket prints.</p>
+        <p class="tiny">6 – 10 min per chilla</p>
+      </article>
+      <article class="pillar reveal" style="--rd:.24s">
+        <div class="pillar-ic"><svg aria-hidden="true"><use href="#i-shield"></use></svg></div>
+        <h3>Recipe cards, not guesswork</h3>
+        <p>Every chilla has a written spec — batter ratio, gram weights, spread diameter. The cook changes; the chilla does not.</p>
+        <p class="tiny">Portion-controlled to the gram</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= chilla lab ============================= -->
+<section class="band band--dark" id="chilla">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Anatomy</p>
+      <h2>Look inside a chilla.</h2>
+      <p>Pick one. The plate redraws, and the numbered pins walk you through what is actually happening on the tawa — batter, fold, flecks and all.</p>
+    </div>
+
+    <div class="lab">
+      <div class="lab-figure reveal">
+        <div class="plate">
+          <svg viewBox="0 0 320 330" role="img" aria-label="Illustration of the selected chilla">
+            <g id="chillaArt"></g>
+          </svg>
+          <div id="pinLayer"></div>
+        </div>
+        <div class="hot-note" id="hotNote" role="status" aria-live="polite">
+          <b>Lace edge</b>
+          <p>Tap a numbered pin on the chilla to read what is going on at that spot.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="variants" id="variantPicker" role="tablist" aria-label="Choose a chilla">
+          <button class="variant" type="button" role="tab" data-v="besan" aria-selected="true">Besan Chilla</button>
+        </div>
+        <div class="recipe" id="recipePanel">
+          <div class="recipe-top">
+            <div><h3>Besan Chilla</h3></div>
+            <div class="price rupee">₹69</div>
+          </div>
+          <p class="recipe-desc">Stone-ground gram flour, carom seed and a fistful of coriander, spread thin on a 210 °C tawa until the rim turns to lace.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- cross-section -->
+    <div style="margin-top:clamp(40px,6vw,76px)">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Cross-section</p>
+        <h2 style="font-size:var(--step-2)">Five layers, bottom to top.</h2>
+      </div>
+      <div class="layers">
+        <div class="layer reveal" style="--sw:#8A5A1E;--rd:0s">
+          <div class="layer-swatch"></div>
+          <div><b>Tawa face</b><p>The side that touched the iron. Matte, toasted, structurally the floor of the whole thing — and the side we always lay down in the box.</p></div>
+        </div>
+        <div class="layer reveal" style="--sw:#E0A32C;--rd:.06s">
+          <div class="layer-swatch"></div>
+          <div><b>Set batter</b><p>Besan or ground dal, thickened by heat rather than by flour. This is the protein layer and it is 2–3 mm, no more.</p></div>
+        </div>
+        <div class="layer reveal" style="--sw:#F2C14A;--rd:.12s">
+          <div class="layer-swatch"></div>
+          <div><b>Fleck line</b><p>Onion, tomato, chilli and coriander, folded in cold so they cook for seconds, not minutes. This is where the chilla gets its smell.</p></div>
+        </div>
+        <div class="layer reveal" style="--sw:#FFF6E0;--rd:.18s">
+          <div class="layer-swatch"></div>
+          <div><b>Stuffing</b><p>Paneer, cheese, corn or sprouts, laid across the centre and sealed under the fold while the base is still tacky.</p></div>
+        </div>
+        <div class="layer reveal" style="--sw:#5E9540;--rd:.24s">
+          <div class="layer-swatch"></div>
+          <div><b>Chutney &amp; curd</b><p>Never poured on. Coriander-mint chutney and set curd travel in their own sealed pots so the lace edge arrives dry.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== process =============================== -->
+<section class="band" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Kitchen sequence</p>
+      <h2>Six steps, and the order is not negotiable.</h2>
+      <p>This is a real sequence, not a graphic. Skip the rest, and the batter tears when you spread it. Skip the vent, and a crisp chilla arrives limp.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step">
+        <p class="step-n">STEP 01</p>
+        <h3>Soak</h3>
+        <p>Moong and chana go into water the previous evening. Four hours minimum; overnight for the dal chillas.</p>
+        <p class="time">4–10 hrs · previous day</p>
+      </article>
+      <article class="step">
+        <p class="step-n">STEP 02</p>
+        <h3>Wet-grind</h3>
+        <p>Ground with ginger, green chilli and jeera at 6 a.m. Never dal flour. You can taste the difference in one bite.</p>
+        <p class="time">6:00 AM · daily</p>
+      </article>
+      <article class="step">
+        <p class="step-n">STEP 03</p>
+        <h3>Rest the batter</h3>
+        <p>Twenty minutes, covered. It hydrates and relaxes — this is what lets you spread it paper-thin without a tear.</p>
+        <p class="time">20 min</p>
+      </article>
+      <article class="step">
+        <p class="step-n">STEP 04</p>
+        <h3>Hot tawa, thin spread</h3>
+        <p>Iron tawa held around 210 °C. One ladle, one spiral from the centre out. The rim crisps before the middle sets.</p>
+        <p class="time">2–3 min, first side</p>
+      </article>
+      <article class="step">
+        <p class="step-n">STEP 05</p>
+        <h3>Stuff &amp; fold</h3>
+        <p>Stuffing goes across the centre while the base is still tacky, then the fold is pressed for five seconds so it welds.</p>
+        <p class="time">2–4 min</p>
+      </article>
+      <article class="step">
+        <p class="step-n">STEP 06</p>
+        <h3>Vent &amp; go</h3>
+        <p>Into a vented kraft box, tawa-face down, chutney sealed separately. Steam is the enemy of a crisp edge.</p>
+        <p class="time">&lt; 60 sec to handover</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ menu ================================ -->
+<section class="band band--alt" id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The board</p>
+      <h2>Twenty-odd things, done properly.</h2>
+      <p>A short menu is a deliberate choice. Fewer SKUs means fresher prep, faster tickets and a cook who never has to guess.</p>
+    </div>
+
+    <div class="menu-tabs" id="menuTabs" role="tablist" aria-label="Menu categories">
+      <button type="button" role="tab" data-cat="all" aria-selected="true">Everything</button>
+      <button type="button" role="tab" data-cat="classic" aria-selected="false">Classic</button>
+      <button type="button" role="tab" data-cat="stuffed" aria-selected="false">Stuffed</button>
+      <button type="button" role="tab" data-cat="protein" aria-selected="false">Protein</button>
+      <button type="button" role="tab" data-cat="rolls" aria-selected="false">Rolls</button>
+      <button type="button" role="tab" data-cat="combos" aria-selected="false">Combos</button>
+      <button type="button" role="tab" data-cat="addons" aria-selected="false">Add-ons</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+
+      <div class="menu-row" data-cat="classic">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-chilla"></use></svg></span>
+        <span class="mname">Besan Chilla <span class="tag tag--veg">Gluten-free</span></span>
+        <span class="mprice rupee">₹69</span>
+        <p class="mdesc">Gram flour, ajwain, onion–tomato–coriander. The house standard, and the one we are judged on.</p>
+      </div>
+      <div class="menu-row" data-cat="classic">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-dal"></use></svg></span>
+        <span class="mname">Moong Dal Chilla <span class="tag tag--veg">14 g protein</span></span>
+        <span class="mprice rupee">₹89</span>
+        <p class="mdesc">Dal soaked four hours and wet-ground the same morning. Softer middle, shatteringly thin edge.</p>
+      </div>
+      <div class="menu-row" data-cat="classic">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-dal"></use></svg></span>
+        <span class="mname">Mixed Dal Chilla</span>
+        <span class="mprice rupee">₹99</span>
+        <p class="mdesc">Moong, chana and urad ground together — deeper, earthier, and the highest protein of the classics.</p>
+      </div>
+      <div class="menu-row" data-cat="classic">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-oats"></use></svg></span>
+        <span class="mname">Oats Chilla <span class="tag">6 g fibre</span></span>
+        <span class="mprice rupee">₹109</span>
+        <p class="mdesc">Blitzed rolled oats and spinach, bound with curd. Nutty, chewy, and the Monday order.</p>
+      </div>
+
+      <div class="menu-row" data-cat="stuffed">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-paneer"></use></svg></span>
+        <span class="mname">Paneer Chilla <span class="tag">Bestseller</span></span>
+        <span class="mprice rupee">₹129</span>
+        <p class="mdesc">60 g of fresh paneer crumbled with capsicum, onion and chaat masala, folded in while hot.</p>
+      </div>
+      <div class="menu-row" data-cat="stuffed">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-cheese"></use></svg></span>
+        <span class="mname">Cheese Chilla</span>
+        <span class="mprice rupee">₹139</span>
+        <p class="mdesc">Grated mozzarella folded under a besan base while it is still on the tawa, so it melts without leaking.</p>
+      </div>
+      <div class="menu-row" data-cat="stuffed">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-paneer"></use></svg></span>
+        <span class="mname">Masala Paneer Chilla</span>
+        <span class="mprice rupee">₹149</span>
+        <p class="mdesc">Paneer tossed through a dry onion–tomato masala before it goes in. Richer, a little sweeter.</p>
+      </div>
+      <div class="menu-row" data-cat="stuffed">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-corn"></use></svg></span>
+        <span class="mname">Corn Cheese Chilla</span>
+        <span class="mprice rupee">₹149</span>
+        <p class="mdesc">Steamed sweet corn, mozzarella and oregano. The order that settles a table of four.</p>
+      </div>
+      <div class="menu-row" data-cat="stuffed">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-flame"></use></svg></span>
+        <span class="mname">Paneer Tikka Chilla <span class="tag tag--hot">Medium heat</span></span>
+        <span class="mprice rupee">₹179</span>
+        <p class="mdesc">Hung-curd tikka marinade, charred on the tawa until the edges catch, then folded.</p>
+      </div>
+
+      <div class="menu-row" data-cat="protein">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-egg"></use></svg></span>
+        <span class="mname">Egg Chilla <span class="tag tag--hot">Contains egg</span></span>
+        <span class="mprice rupee">₹139</span>
+        <p class="mdesc">One egg set into a besan base, cooked on its own section of the tawa away from the veg tickets.</p>
+      </div>
+      <div class="menu-row" data-cat="protein">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-protein"></use></svg></span>
+        <span class="mname">Moong + Paneer</span>
+        <span class="mprice rupee">₹159</span>
+        <p class="mdesc">Moong dal base, paneer stuffing, nothing else in the way. 26 g of protein, no powders.</p>
+      </div>
+      <div class="menu-row" data-cat="protein">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-soya"></use></svg></span>
+        <span class="mname">Soya + Paneer</span>
+        <span class="mprice rupee">₹169</span>
+        <p class="mdesc">Rehydrated soya granules ground into the batter itself, paneer laid on top. 29 g.</p>
+      </div>
+      <div class="menu-row" data-cat="protein">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-sprout"></use></svg></span>
+        <span class="mname">High-Protein Chilla <span class="tag">32 g protein</span></span>
+        <span class="mprice rupee">₹199</span>
+        <p class="mdesc">Moong and soya in the batter, paneer and raw sprouts in the fold, cracked pepper to finish.</p>
+      </div>
+
+      <div class="menu-row" data-cat="rolls">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-roll"></use></svg></span>
+        <span class="mname">Masala Chilla Roll</span>
+        <span class="mprice rupee">₹109</span>
+        <p class="mdesc">A classic chilla rolled around onion, chutney and chaat masala. One hand, no plate.</p>
+      </div>
+      <div class="menu-row" data-cat="rolls">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-roll"></use></svg></span>
+        <span class="mname">Cheese Chilla Roll</span>
+        <span class="mprice rupee">₹139</span>
+        <p class="mdesc">Rolled hot so the cheese sets around the filling instead of onto the foil.</p>
+      </div>
+      <div class="menu-row" data-cat="rolls">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-roll"></use></svg></span>
+        <span class="mname">Paneer Chilla Roll</span>
+        <span class="mprice rupee">₹149</span>
+        <p class="mdesc">The paneer chilla, rolled for one hand and a metro ride to Sector 62.</p>
+      </div>
+
+      <div class="menu-row" data-cat="combos">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-cup"></use></svg></span>
+        <span class="mname">Chilla + Chai <span class="tag">8 AM order</span></span>
+        <span class="mprice rupee">₹119</span>
+        <p class="mdesc">Any classic chilla with a kulhad masala chai. The cheapest way to start properly.</p>
+      </div>
+      <div class="menu-row" data-cat="combos">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-curd"></use></svg></span>
+        <span class="mname">2 Chilla + Curd</span>
+        <span class="mprice rupee">₹149</span>
+        <p class="mdesc">Two classics, a 100 g bowl of set curd, chutney sealed on the side.</p>
+      </div>
+      <div class="menu-row" data-cat="combos">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-thali"></use></svg></span>
+        <span class="mname">Protein Meal <span class="tag">40 g protein</span></span>
+        <span class="mprice rupee">₹219</span>
+        <p class="mdesc">High-protein chilla, curd, salad and a glass of chaas. One tray, post-gym.</p>
+      </div>
+      <div class="menu-row" data-cat="combos">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-thali"></use></svg></span>
+        <span class="mname">2-Person Breakfast</span>
+        <span class="mprice rupee">₹249</span>
+        <p class="mdesc">Three chillas, two chais, double chutney. Feeds two desks with something left over.</p>
+      </div>
+
+      <div class="menu-row" data-cat="addons">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-leaf"></use></svg></span>
+        <span class="mname">Extra Chutney</span>
+        <span class="mprice rupee">₹15</span>
+        <p class="mdesc">Coriander, mint, green chilli, lemon. 30 ml sealed pot, ground the same morning.</p>
+      </div>
+      <div class="menu-row" data-cat="addons">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-curd"></use></svg></span>
+        <span class="mname">Curd</span>
+        <span class="mprice rupee">₹29</span>
+        <p class="mdesc">100 g, set in-house overnight. Not a sachet.</p>
+      </div>
+      <div class="menu-row" data-cat="addons">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-carrot"></use></svg></span>
+        <span class="mname">Salad</span>
+        <span class="mprice rupee">₹29</span>
+        <p class="mdesc">Cucumber, carrot, onion, lemon, black salt. Cut to order.</p>
+      </div>
+      <div class="menu-row" data-cat="addons">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-cheese"></use></svg></span>
+        <span class="mname">Extra Cheese</span>
+        <span class="mprice rupee">₹39</span>
+        <p class="mdesc">A second handful of grated mozzarella, into any chilla or roll.</p>
+      </div>
+      <div class="menu-row" data-cat="addons">
+        <span class="mi"><svg aria-hidden="true"><use href="#i-paneer"></use></svg></span>
+        <span class="mname">Extra Paneer</span>
+        <span class="mprice rupee">₹49</span>
+        <p class="mdesc">30 g more of the same fresh paneer. Adds roughly 5 g of protein.</p>
+      </div>
+
+    </div>
+
+    <p class="menu-note">
+      Launch pricing, inclusive of taxes as applicable. Dine-in and direct prices shown; delivery-app prices may differ.
+      Allergens: paneer, cheese, curd and butter contain dairy; oats and sooji items contain gluten; the soya chilla contains soya.
+      Ask for Jain (no onion, no garlic) on any chilla — we prep it on a cleaned section of the tawa.
+    </p>
+  </div>
+</section>
+
+<!-- =============================== drinks =============================== -->
+<section class="band" id="drinks">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">To drink</p>
+      <h2>What goes beside it.</h2>
+      <p>Chilla is dry-ish and savoury by design, so the drink is not an upsell — it is half the meal. Chai in the morning, chaas after a protein chilla, juice when Noida hits 44&nbsp;°C.</p>
+    </div>
+
+    <div class="shelf">
+      <article class="drink reveal" style="--rd:0s">
+        <svg class="drink-glass" viewBox="0 0 92 116" aria-hidden="true">
+          <defs><clipPath id="cp1"><path d="M22 36 30 104q16 8 32 0L70 36Z"/></clipPath></defs>
+          <g class="steam" fill="none" stroke="#C2734A" stroke-width="3" stroke-linecap="round" opacity=".7">
+            <path d="M33 26c7-8-4-12 3-20"/><path d="M46 22c7-8-4-12 3-20"/><path d="M59 26c7-8-4-12 3-20"/>
+          </g>
+          <path d="M22 36 30 104q16 8 32 0L70 36Z" fill="#C2734A"/>
+          <g clip-path="url(#cp1)"><rect class="liquid" x="18" y="48" width="56" height="68" fill="#8E5227"/></g>
+          <ellipse cx="46" cy="36" rx="24" ry="7.5" fill="#A05B33"/>
+          <ellipse cx="46" cy="36" rx="18" ry="5" fill="#6F3D18"/>
+        </svg>
+        <b>Kulhad Masala Chai</b>
+        <small>Boiled with ginger, elaichi and a clay cup that changes the taste</small>
+        <span class="mprice rupee">₹39</span>
+      </article>
+
+      <article class="drink reveal" style="--rd:.06s">
+        <svg class="drink-glass" viewBox="0 0 92 116" aria-hidden="true">
+          <defs><clipPath id="cp2"><path d="M24 20 30 104q16 8 32 0L68 20Z"/></clipPath></defs>
+          <path d="M24 20 30 104q16 8 32 0L68 20Z" fill="#DCE9EC" opacity=".55"/>
+          <g clip-path="url(#cp2)">
+            <rect class="liquid" x="20" y="38" width="56" height="78" fill="#EFE07A"/>
+            <g fill="#FFFFFF" opacity=".8">
+              <circle class="bub" style="--d:0s"  cx="38" cy="86" r="2.6"/>
+              <circle class="bub" style="--d:.7s" cx="52" cy="92" r="2"/>
+              <circle class="bub" style="--d:1.3s" cx="45" cy="80" r="2.3"/>
+            </g>
+          </g>
+          <path d="M24 20 30 104q16 8 32 0L68 20Z" fill="none" stroke="#B9CDD2" stroke-width="2.4"/>
+          <path d="M62 24a10 10 0 1 1 .01 0" fill="#F2D83E" opacity=".95"/>
+          <path d="M62 14v20M52 24h20" stroke="#E4C52C" stroke-width="1.6"/>
+        </svg>
+        <b>Nimbu Soda</b>
+        <small>Fresh lemon, black salt, soda poured at the counter</small>
+        <span class="mprice rupee">₹49</span>
+      </article>
+
+      <article class="drink reveal" style="--rd:.12s">
+        <svg class="drink-glass" viewBox="0 0 92 116" aria-hidden="true">
+          <defs><clipPath id="cp3"><path d="M26 44 31 104q15 7 30 0L66 44Z"/></clipPath></defs>
+          <path d="M26 44 31 104q15 7 30 0L66 44Z" fill="#DCE9EC" opacity=".55"/>
+          <g clip-path="url(#cp3)"><rect class="liquid" x="22" y="56" width="52" height="60" fill="#F7F4E8"/></g>
+          <path d="M26 44 31 104q15 7 30 0L66 44Z" fill="none" stroke="#B9CDD2" stroke-width="2.4"/>
+          <g transform="translate(52 38) rotate(18)" fill="#5E9540"><path d="M0 0c7-1 12-6 12-13C5-12 0-7 0 0Z"/><path d="M0 0C-6-2-9-7-8-13-2-12 1-6 0 0Z"/></g>
+        </svg>
+        <b>Chaas / Buttermilk</b>
+        <small>Churned curd, roasted jeera, curry leaf, hing</small>
+        <span class="mprice rupee">₹49</span>
+      </article>
+
+      <article class="drink reveal" style="--rd:.18s">
+        <svg class="drink-glass" viewBox="0 0 92 116" aria-hidden="true">
+          <defs><clipPath id="cp4"><path d="M24 20 30 104q16 8 32 0L68 20Z"/></clipPath></defs>
+          <path d="M24 20 30 104q16 8 32 0L68 20Z" fill="#DCE9EC" opacity=".55"/>
+          <g clip-path="url(#cp4)">
+            <rect class="liquid" x="20" y="34" width="56" height="82" fill="#5B3A22"/>
+            <rect x="20" y="34" width="56" height="10" fill="#C8A57E"/>
+          </g>
+          <path d="M24 20 30 104q16 8 32 0L68 20Z" fill="none" stroke="#B9CDD2" stroke-width="2.4"/>
+          <path d="M56 12 48 40" stroke="#E79B0C" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <b>Cold Coffee</b>
+        <small>Double shot, full-cream milk, blended thick — no syrup</small>
+        <span class="mprice rupee">₹99</span>
+      </article>
+
+      <article class="drink reveal" style="--rd:.24s">
+        <svg class="drink-glass" viewBox="0 0 92 116" aria-hidden="true">
+          <defs><clipPath id="cp5"><path d="M20 40 26 104q20 7 40 0L72 40Z"/></clipPath></defs>
+          <path d="M20 40 26 104q20 7 40 0L72 40Z" fill="#DCE9EC" opacity=".55"/>
+          <g clip-path="url(#cp5)"><rect class="liquid" x="16" y="50" width="60" height="66" fill="#FBF3DC"/></g>
+          <path d="M20 40 26 104q20 7 40 0L72 40Z" fill="none" stroke="#B9CDD2" stroke-width="2.4"/>
+          <ellipse cx="46" cy="46" rx="25" ry="7" fill="#FFFDF4"/>
+          <path d="M34 44c6-5 18-5 24 0" fill="none" stroke="#E9DCC0" stroke-width="2"/>
+        </svg>
+        <b>Lassi</b>
+        <small>Sweet or salted, hand-whisked, thick enough for a spoon</small>
+        <span class="mprice rupee">₹79</span>
+      </article>
+
+      <article class="drink reveal" style="--rd:.3s">
+        <svg class="drink-glass" viewBox="0 0 92 116" aria-hidden="true">
+          <defs><clipPath id="cp6"><path d="M24 20 30 104q16 8 32 0L68 20Z"/></clipPath></defs>
+          <path d="M24 20 30 104q16 8 32 0L68 20Z" fill="#DCE9EC" opacity=".55"/>
+          <g clip-path="url(#cp6)"><rect class="liquid" x="20" y="36" width="56" height="80" fill="#EE8B2A"/></g>
+          <path d="M24 20 30 104q16 8 32 0L68 20Z" fill="none" stroke="#B9CDD2" stroke-width="2.4"/>
+          <g transform="translate(60 22)"><path d="M0 0a11 11 0 0 1 0 16Z" fill="#F5A93F"/><path d="M0 0a11 11 0 0 1 0 16Z" fill="none" stroke="#E07A2C" stroke-width="1.8"/></g>
+        </svg>
+        <b>Fresh Seasonal Juice</b>
+        <small>Whatever is actually in season at the Sector 62 mandi that week</small>
+        <span class="mprice rupee">₹89</span>
+      </article>
+    </div>
+
+    <p class="menu-note">Packaged water ₹20 · bottled soft drinks at MRP. Chai and coffee are served through the day; juice depends on the morning's produce.</p>
+  </div>
+</section>
+
+<!-- ============================== packaging ============================== -->
+<section class="band band--dark" id="delivery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Delivery</p>
+      <h2>A crisp chilla that survives the ride.</h2>
+      <p>The honest risk with this category is that a chilla loses its edge in a closed box. So the packaging is part of the recipe, and we test it the same way we test the food.</p>
+    </div>
+
+    <div class="pack">
+      <article class="pack-card reveal" style="--rd:0s">
+        <svg aria-hidden="true"><use href="#i-vent"></use></svg>
+        <h3>Vented kraft box</h3>
+        <p>Perforated lid. Trapped steam is what turns a lace edge into a napkin — the vents let it out on the way to you.</p>
+      </article>
+      <article class="pack-card reveal" style="--rd:.07s">
+        <svg aria-hidden="true"><use href="#i-leaf"></use></svg>
+        <h3>Chutney rides separately</h3>
+        <p>A sealed 30 ml pot, never poured over the chilla. Same for curd. You assemble it; we just get it there dry.</p>
+      </article>
+      <article class="pack-card reveal" style="--rd:.14s">
+        <svg aria-hidden="true"><use href="#i-box"></use></svg>
+        <h3>Bagasse and kraft only</h3>
+        <p>Sugarcane-pulp bowls, kraft bags, wooden cutlery. No plastic clamshells, which sweat and ruin the texture anyway.</p>
+      </article>
+      <article class="pack-card reveal" style="--rd:.21s">
+        <svg aria-hidden="true"><use href="#i-bike"></use></svg>
+        <h3>3–5 km radius</h3>
+        <p>We cap the delivery zone rather than chase orders we cannot serve hot. Beyond that, it is not our chilla any more.</p>
+      </article>
+    </div>
+
+    <div class="dot-test">
+      <p class="eyebrow" style="margin-bottom:6px">Crispness, tested at the counter</p>
+      <p style="color:var(--ink-2);font-size:.94rem;max-width:56ch;margin-bottom:10px">
+        Every recipe goes through a timed box test before it reaches the menu. We score the edge at three intervals — anything that drops below the line gets a packaging change, not a menu listing.
+      </p>
+      <div class="bar-row">
+        <span class="lbl">15 minutes</span>
+        <span class="bar-track"><span class="bar-fill" style="--w:94%;width:94%"></span></span>
+        <span class="val">94%</span>
+      </div>
+      <div class="bar-row">
+        <span class="lbl">30 minutes</span>
+        <span class="bar-track"><span class="bar-fill" style="--w:81%;width:81%"></span></span>
+        <span class="val">81%</span>
+      </div>
+      <div class="bar-row">
+        <span class="lbl">45 minutes</span>
+        <span class="bar-track"><span class="bar-fill" style="--w:63%;width:63%"></span></span>
+        <span class="val">63%</span>
+      </div>
+      <p style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-3);margin-top:6px">
+        Internal crispness score from our own box tests · target ≥ 80% at 30 min
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== visit =============================== -->
+<section class="band" id="visit">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Where to find us</p>
+      <h2>One kitchen first. Properly.</h2>
+      <p>We would rather run a single outlet that hits sixty orders a day than three that limp. Sector 62 opens first; the other two follow only once the first one earns it.</p>
+    </div>
+
+    <div class="locs">
+      <article class="loc loc--lead reveal">
+        <span class="loc-status">Opening first</span>
+        <h3>Sector 62, Noida</h3>
+        <p class="addr">Ground-floor unit in the internal office-food market, walking distance from the Blue Line and the Sector 62 business cluster.</p>
+        <dl>
+          <div><dt>Format</dt><dd>Takeaway + delivery + 6–10 seats</dd></div>
+          <div><dt>Hours</dt><dd>7:30 AM – 11:00 PM</dd></div>
+          <div><dt>Peak</dt><dd>Breakfast · lunch · evening</dd></div>
+          <div><dt>Delivery</dt><dd>3–5 km radius</dd></div>
+        </dl>
+      </article>
+
+      <article class="loc reveal" style="--rd:.08s">
+        <span class="loc-status">Planned</span>
+        <h3>Sector 137, Noida</h3>
+        <p class="addr">Society-facing market beside the high-rise clusters, on the Aqua Line. The residential counterweight to an office-led first outlet.</p>
+        <dl>
+          <div><dt>Catchment</dt><dd>Large apartment societies</dd></div>
+          <div><dt>Strength</dt><dd>Weekends &amp; family packs</dd></div>
+          <div><dt>Status</dt><dd>Site scouting</dd></div>
+        </dl>
+      </article>
+
+      <article class="loc reveal" style="--rd:.16s">
+        <span class="loc-status">Planned</span>
+        <h3>Knowledge Park 2, Greater Noida</h3>
+        <p class="addr">Near the college and India Expo ecosystem, where chilla and moonglet are already familiar and value combos do the heavy lifting.</p>
+        <dl>
+          <div><dt>Catchment</dt><dd>Students &amp; young workers</dd></div>
+          <div><dt>Strength</dt><dd>₹79–₹179 combos</dd></div>
+          <div><dt>Status</dt><dd>Site scouting</dd></div>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== order =============================== -->
+<section class="band band--alt" id="order">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Ordering</p>
+      <h2>Four ways to get a chilla.</h2>
+      <p>Apps are how you find us. Direct is how we stay affordable — order on WhatsApp or at the counter and the price on the board is the price you pay.</p>
+    </div>
+
+    <div class="channels reveal">
+      <a class="channel" href="#contact">
+        <svg aria-hidden="true"><use href="#i-chat"></use></svg>
+        <span><b>WhatsApp</b><small>Direct ordering · board price</small></span>
+      </a>
+      <a class="channel" href="#contact">
+        <svg aria-hidden="true"><use href="#i-bike"></use></svg>
+        <span><b>Swiggy</b><small>Listing goes live at launch</small></span>
+      </a>
+      <a class="channel" href="#contact">
+        <svg aria-hidden="true"><use href="#i-bike"></use></svg>
+        <span><b>Zomato</b><small>Listing goes live at launch</small></span>
+      </a>
+      <a class="channel" href="#visit">
+        <svg aria-hidden="true"><use href="#i-pin"></use></svg>
+        <span><b>Walk in</b><small>Sector 62 · 7:30 AM – 11 PM</small></span>
+      </a>
+    </div>
+
+    <div style="margin-top:clamp(40px,5vw,68px)">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Good to know</p>
+        <h2 style="font-size:var(--step-2)">Questions we expect.</h2>
+      </div>
+      <div class="faq">
+        <details class="qa reveal">
+          <summary>Is chilla gluten-free?</summary>
+          <div class="qa-body">The besan and dal chillas are — gram flour and lentils contain no gluten. The oats chilla and anything with sooji are not. We cook on a shared tawa, so if you are coeliac rather than avoiding gluten by preference, please tell us at the counter and we will be straight with you about cross-contact.</div>
+        </details>
+        <details class="qa reveal">
+          <summary>Do you use maida anywhere?</summary>
+          <div class="qa-body">No. Not in the batter, not as a binder, not in the rolls. The chilla itself is the wrap. If a chilla needs body, it gets besan or a little fine sooji, both of which are on the menu card.</div>
+        </details>
+        <details class="qa reveal">
+          <summary>Can I get it without onion and garlic?</summary>
+          <div class="qa-body">Yes, on any chilla. Ask for Jain and we prep it on a cleaned section of the tawa with a separate spatula. The stuffing swaps to paneer, capsicum and corn.</div>
+        </details>
+        <details class="qa reveal">
+          <summary>Is the kitchen vegetarian?</summary>
+          <div class="qa-body">Everything is vegetarian except one item — the Egg Chilla. It is cooked on its own section of the tawa, with its own spatula and its own prep tray, and it is labelled on the box.</div>
+        </details>
+        <details class="qa reveal">
+          <summary>Will it still be crisp when it arrives?</summary>
+          <div class="qa-body">At 15 and 30 minutes, yes — that is what the vented box and the separate chutney pot are for. Past 45 minutes the edge softens, which is why we cap delivery at a 3–5 km radius instead of taking every order on the map.</div>
+        </details>
+        <details class="qa reveal">
+          <summary>Do you do office breakfasts and bulk orders?</summary>
+          <div class="qa-body">Yes. Give us the head count and a time slot the evening before and we will batch the prep, not the cooking — chillas still hit the tawa on site so they arrive hot. Use the form below.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== contact ============================== -->
+<section class="band" id="contact">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div>
+        <p class="eyebrow" style="color:var(--haldi-2)">Talk to us</p>
+        <h2>Office breakfast, bulk order, or a franchise conversation.</h2>
+        <p>Three partners run this. Whichever of those three things you are writing about, a person reads it — not a ticketing system.</p>
+        <div class="hero-chips" style="margin-top:22px">
+          <span class="chip" style="background:rgba(255,255,255,.07);border-color:var(--d-line);color:var(--d-ink2)"><svg aria-hidden="true" style="color:var(--haldi-2)"><use href="#i-phone"></use></svg> +91 98XXX XXXXX</span>
+          <span class="chip" style="background:rgba(255,255,255,.07);border-color:var(--d-line);color:var(--d-ink2)"><svg aria-hidden="true" style="color:var(--haldi-2)"><use href="#i-mail"></use></svg> hello@chillachaska.in</span>
+        </div>
+      </div>
+
+      <form class="form" id="leadForm" novalidate>
+        <div>
+          <label for="leadName">Your name</label>
+          <input id="leadName" name="name" type="text" placeholder="Priya Sharma" autocomplete="name" required>
+        </div>
+        <div class="row">
+          <div>
+            <label for="leadPhone">Phone</label>
+            <input id="leadPhone" name="phone" type="tel" placeholder="98XXX XXXXX" autocomplete="tel">
+          </div>
+          <div>
+            <label for="leadTopic">About</label>
+            <select id="leadTopic" name="topic">
+              <option>Office breakfast</option>
+              <option>Bulk / party order</option>
+              <option>Franchise enquiry</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="leadMsg">Message</label>
+          <textarea id="leadMsg" name="message" rows="3" placeholder="14 people, Sector 62, 9:30 AM on Thursday"></textarea>
+        </div>
+        <button class="btn btn--amber" type="submit">Send it over <svg aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+        <p class="form-ok" id="formOk" tabindex="-1" hidden></p>
+        <p class="form-note">Setup note for the owners: point this form at your mailer or WhatsApp Business number before launch — it is not connected to an inbox yet.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =============================== footer =============================== -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top" aria-label="Chilla Chaska, home">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+            <ellipse cx="24" cy="31" rx="18" ry="12.5" fill="#F2C14A"/>
+            <path d="M6 31a18 12.5 0 0 0 36 0Z" fill="#E79B0C"/>
+            <circle cx="17" cy="26" r="1.8" fill="#16633A"/>
+            <circle cx="28" cy="24" r="1.5" fill="#16633A"/>
+            <circle cx="33" cy="28" r="1.3" fill="#C93A2E"/>
+            <ellipse cx="24" cy="31" rx="18" ry="12.5" fill="none" stroke="#3FB871" stroke-width="2.6"/>
+          </svg>
+          <span class="brand-word">
+            <b style="color:#F7F2E2">Chilla<i> Chaska</i></b>
+            <span>Good food · Great mood</span>
+          </span>
+        </a>
+        <p>A chilla and protein-breakfast kitchen. Batter ground daily, chillas cooked to order, chutney sealed separately.</p>
+      </div>
+
+      <div>
+        <h4>Menu</h4>
+        <ul class="foot-links">
+          <li><a href="#menu">Classic chillas</a></li>
+          <li><a href="#menu">Stuffed &amp; protein</a></li>
+          <li><a href="#menu">Rolls &amp; combos</a></li>
+          <li><a href="#drinks">Drinks</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Kitchen</h4>
+        <ul class="foot-links">
+          <li><a href="#chilla">Anatomy of a chilla</a></li>
+          <li><a href="#how">How it's made</a></li>
+          <li><a href="#delivery">Packaging &amp; delivery</a></li>
+          <li><a href="#order">Good to know</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul class="foot-links">
+          <li><a href="#visit">Locations</a></li>
+          <li><a href="#contact">Franchise enquiry</a></li>
+          <li><a href="#contact">Office breakfast</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Chilla Chaska. Flagship opening in Sector 62, Noida.</span>
+      <span>Healthy · Tasty · Always</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chilla Chaska POS</title>
+<meta name="description" content="Counter billing for Chilla Chaska — GST bills, KOT tickets, day-end reports. Runs offline in the browser.">
+<meta name="theme-color" content="#16633A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=DM+Mono:wght@400;500&family=Karla:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="pos.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="p-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16.5 16.5 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="p-print" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M7 9V3.5h10V9"/><path d="M7 18H4.5a1.5 1.5 0 0 1-1.5-1.5v-6A1.5 1.5 0 0 1 4.5 9h15a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5H17"/><path d="M7 14h10v6.5H7Z"/></g></symbol>
+  <symbol id="p-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2M12 19.4v2M2.6 12h2M19.4 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></g></symbol>
+  <symbol id="p-moon" viewBox="0 0 24 24"><path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8 8.6 8.6 0 1 0 20.2 14.6Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="p-trash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M9.5 6.5V4.2h5v2.3M6.6 6.5l.9 12.3a1.6 1.6 0 0 0 1.6 1.5h5.8a1.6 1.6 0 0 0 1.6-1.5l.9-12.3"/><path d="M10.4 10.2v6.6M13.6 10.2v6.6"/></g></symbol>
+  <symbol id="p-check" viewBox="0 0 24 24"><path d="m5 12.6 4.6 4.6L19 6.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="p-kot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5.5 3.5h13v17l-2.2-1.6-2.1 1.6-2.2-1.6-2.1 1.6-2.2-1.6-2.2 1.6Z"/><path d="M9 8.5h6M9 12.5h6"/></g></symbol>
+  <symbol id="p-chilla" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12a8.6 8.6 0 0 0 17.2 0"/></g><circle cx="9" cy="8.4" r=".9" fill="currentColor"/><circle cx="14.6" cy="7.4" r=".8" fill="currentColor"/></symbol>
+</defs></svg>
+
+<div class="app">
+
+  <!-- ============================== topbar ============================== -->
+  <header class="topbar">
+    <div class="tb-brand">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <ellipse cx="24" cy="29" rx="18" ry="12.5" fill="#F2C14A"/>
+        <path d="M6 29a18 12.5 0 0 0 36 0Z" fill="#E79B0C"/>
+        <circle cx="17" cy="24" r="1.8" fill="#16633A"/><circle cx="28" cy="22" r="1.5" fill="#16633A"/>
+        <circle cx="33" cy="26" r="1.3" fill="#C93A2E"/>
+        <ellipse cx="24" cy="29" rx="18" ry="12.5" fill="none" stroke="#16633A" stroke-width="2.6"/>
+      </svg>
+      <span>
+        <b>Chilla<i> Chaska</i></b>
+        <small id="tbOutlet">Sector 62, Noida</small>
+      </span>
+    </div>
+
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Sections">
+      <button type="button" role="tab" data-view="billing" aria-selected="true">Billing</button>
+      <button type="button" role="tab" data-view="orders" aria-selected="false">Orders</button>
+      <button type="button" role="tab" data-view="day" aria-selected="false">Day report</button>
+      <button type="button" role="tab" data-view="menu" aria-selected="false">Menu</button>
+      <button type="button" role="tab" data-view="settings" aria-selected="false">Settings</button>
+    </nav>
+
+    <div class="tb-right">
+      <div class="tb-date">
+        <b id="tbDate">—</b>
+        <span class="lbl" id="tbBillNo">—</span>
+      </div>
+      <button class="iconbtn" id="themeToggle" type="button" aria-label="Switch colour theme">
+        <svg class="i-sun" aria-hidden="true"><use href="#p-sun"></use></svg>
+        <svg class="i-moon" aria-hidden="true"><use href="#p-moon"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================== billing ============================== -->
+  <section class="view billing" id="view-billing">
+    <div class="catalog">
+      <div class="searchrow">
+        <label class="search">
+          <svg aria-hidden="true"><use href="#p-search"></use></svg>
+          <input id="search" type="search" placeholder="Search item or short code — paneer, BC, chai…" autocomplete="off" aria-label="Search the menu">
+        </label>
+      </div>
+      <div class="cats" id="cats" role="tablist" aria-label="Menu categories"></div>
+      <div class="items" id="items"></div>
+    </div>
+
+    <aside class="till" aria-label="Current order">
+      <div class="till-head">
+        <div class="seg seg--5" id="orderType" role="tablist" aria-label="Order type">
+          <button type="button" role="tab" data-t="dinein" aria-selected="false">Dine-in</button>
+          <button type="button" role="tab" data-t="takeaway" aria-selected="true">Takeaway</button>
+          <button type="button" role="tab" data-t="delivery" aria-selected="false">Delivery</button>
+          <button type="button" role="tab" data-t="swiggy" aria-selected="false">Swiggy</button>
+          <button type="button" role="tab" data-t="zomato" aria-selected="false">Zomato</button>
+        </div>
+        <div class="fieldrow">
+          <label class="field"><span class="lbl" id="lblSlot">Table / ref</span>
+            <input id="fRef" type="text" placeholder="T1" autocomplete="off" aria-labelledby="lblSlot">
+          </label>
+          <label class="field"><span class="lbl">Phone (optional)</span>
+            <input id="fPhone" type="tel" placeholder="98XXX XXXXX" autocomplete="off">
+          </label>
+        </div>
+      </div>
+
+      <div class="cart" id="cart"></div>
+
+      <div class="till-foot">
+        <div class="disc-row">
+          <select id="discType" aria-label="Discount type">
+            <option value="none">No discount</option>
+            <option value="pct">Discount %</option>
+            <option value="flat">Discount ₹</option>
+          </select>
+          <input id="discVal" type="number" min="0" step="1" value="0" inputmode="decimal" aria-label="Discount value" disabled>
+        </div>
+
+        <div class="totals" id="totals"></div>
+
+        <div class="paybtns" id="payMode" role="group" aria-label="Payment mode">
+          <button class="pay" type="button" data-p="cash" aria-pressed="true">Cash</button>
+          <button class="pay" type="button" data-p="upi" aria-pressed="false">UPI</button>
+          <button class="pay" type="button" data-p="card" aria-pressed="false">Card</button>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn--ghost" id="btnKot" type="button">
+            <svg aria-hidden="true"><use href="#p-kot"></use></svg> KOT
+          </button>
+          <button class="btn btn--ghost" id="btnClear" type="button">Clear</button>
+          <button class="btn btn--go" id="btnPay" type="button" disabled>
+            <svg aria-hidden="true"><use href="#p-check"></use></svg>
+            <span id="btnPayLabel">Save &amp; print bill</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============================== orders ============================== -->
+  <section class="view page" id="view-orders" hidden>
+    <div class="page-in">
+      <div class="page-head">
+        <div>
+          <h2>Orders</h2>
+          <p id="ordersSub">—</p>
+        </div>
+        <div class="btnrow">
+          <label class="field"><span class="lbl">Date</span><input id="ordDate" type="date"></label>
+        </div>
+      </div>
+      <div class="card"><div class="scrollx"><table class="tbl" id="ordersTbl"></table></div></div>
+    </div>
+  </section>
+
+  <!-- ============================ day report ============================ -->
+  <section class="view page" id="view-day" hidden>
+    <div class="page-in">
+      <div class="page-head">
+        <div>
+          <h2>Day report</h2>
+          <p id="daySub">—</p>
+        </div>
+        <div class="btnrow">
+          <label class="field"><span class="lbl">Date</span><input id="dayDate" type="date"></label>
+          <button class="btn btn--ghost" id="btnCsv" type="button">Export CSV</button>
+        </div>
+      </div>
+
+      <div class="kpis" id="dayKpis"></div>
+
+      <div class="setgrid">
+        <div class="card"><h3>By order type</h3><table class="tbl" id="dayType"></table></div>
+        <div class="card"><h3>By payment mode</h3><table class="tbl" id="dayPay"></table></div>
+      </div>
+
+      <div class="card">
+        <h3>Item-wise sales</h3>
+        <div class="scrollx"><table class="tbl" id="dayItems"></table></div>
+      </div>
+
+      <div class="card" id="csvCard" hidden>
+        <h3>CSV</h3>
+        <p class="note" style="margin-bottom:10px">If the download is blocked, copy the text below into a spreadsheet.</p>
+        <textarea class="io" id="csvOut" readonly rows="8"></textarea>
+        <div class="btnrow" style="margin-top:10px">
+          <button class="btn btn--ghost" id="btnCsvCopy" type="button">Copy CSV</button>
+          <button class="btn btn--ghost" id="btnCsvClose" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== menu =============================== -->
+  <section class="view page" id="view-menu" hidden>
+    <div class="page-in">
+      <div class="page-head">
+        <div>
+          <h2>Menu</h2>
+          <p>Edit names, prices and short codes. Changes save as you type and apply to the billing screen immediately.</p>
+        </div>
+        <div class="btnrow">
+          <button class="btn btn--ghost" id="btnAddItem" type="button">+ Add item</button>
+          <button class="btn btn--ghost btn--danger" id="btnResetMenu" type="button">Reset to default</button>
+        </div>
+      </div>
+      <div class="card"><div class="medit" id="menuEdit"></div></div>
+      <p class="note">Short codes print on the KOT so the cook reads the ticket at a glance. Keep them to 2–4 characters.</p>
+    </div>
+  </section>
+
+  <!-- ============================= settings ============================= -->
+  <section class="view page" id="view-settings" hidden>
+    <div class="page-in">
+      <div class="page-head">
+        <div>
+          <h2>Settings</h2>
+          <p>Everything here prints on the bill. Fill it in before the first real sale.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Outlet</h3>
+        <div class="setgrid">
+          <label class="field"><span class="lbl">Outlet name</span><input id="sOutlet" type="text"></label>
+          <label class="field"><span class="lbl">Phone</span><input id="sPhone" type="tel"></label>
+          <label class="field" style="grid-column:1/-1"><span class="lbl">Address</span><input id="sAddress" type="text"></label>
+          <label class="field"><span class="lbl">GSTIN</span><input id="sGstin" type="text" placeholder="09XXXXXXXXXXXZX"></label>
+          <label class="field"><span class="lbl">FSSAI licence no.</span><input id="sFssai" type="text" placeholder="1XXXXXXXXXXXXX"></label>
+          <label class="field" style="grid-column:1/-1"><span class="lbl">Bill footer line</span><input id="sFooter" type="text"></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Tax &amp; charges</h3>
+        <div class="setgrid">
+          <label class="switch"><input id="sGstOn" type="checkbox">
+            <span>Charge GST<small>Turn off until your GST registration is active</small></span>
+          </label>
+          <label class="switch"><input id="sIncl" type="checkbox">
+            <span>Menu prices include GST<small>Matches the printed menu card</small></span>
+          </label>
+          <label class="field"><span class="lbl">GST rate %</span><input id="sRate" type="number" min="0" max="28" step="0.5"></label>
+          <label class="field"><span class="lbl">Packaging charge ₹ (delivery)</span><input id="sPack" type="number" min="0" step="1"></label>
+        </div>
+        <p class="note" style="margin-top:12px">
+          Restaurant service is generally 5% GST without input tax credit, split as 2.5% CGST + 2.5% SGST within Uttar Pradesh.
+          Confirm your rate, registration status and invoice-series format with your CA before you bill a customer.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Printing</h3>
+        <div class="setgrid">
+          <label class="field"><span class="lbl">Receipt width</span>
+            <select id="sPaper"><option value="80">80 mm (standard thermal)</option><option value="58">58 mm (compact)</option></select>
+          </label>
+          <label class="field"><span class="lbl">Invoice series prefix</span><input id="sPrefix" type="text" placeholder="CC"></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Backup</h3>
+        <p style="color:var(--ink-3);font-size:13.5px;margin-bottom:10px">
+          All data lives in this browser on this device. Nothing is sent anywhere. Copy the backup below somewhere safe at the end of every day —
+          clearing the browser's site data wipes your bills.
+        </p>
+        <textarea class="io" id="backupIo" rows="6" spellcheck="false" aria-label="Backup data"></textarea>
+        <div class="btnrow" style="margin-top:10px">
+          <button class="btn btn--ghost" id="btnBackup" type="button">Show backup</button>
+          <button class="btn btn--ghost" id="btnBackupCopy" type="button">Copy</button>
+          <button class="btn btn--amber" id="btnRestore" type="button">Restore from text</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Danger zone</h3>
+        <div class="btnrow">
+          <button class="btn btn--danger" id="btnWipeDay" type="button">Delete today's bills</button>
+          <button class="btn btn--danger" id="btnWipeAll" type="button">Reset everything</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================ receipt modal ============================ -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="modalTitle">Bill</h3>
+      <button class="iconbtn" id="modalClose" type="button" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body"><div id="modalReceipt"></div></div>
+    <div class="modal-foot">
+      <button class="btn btn--ghost" id="modalDone" type="button">Done</button>
+      <button class="btn btn--go" id="modalPrint" type="button" style="grid-column:auto">
+        <svg aria-hidden="true"><use href="#p-print"></use></svg> Print
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="printRoot"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="pos.js"></script>
+</body>
+</html>
